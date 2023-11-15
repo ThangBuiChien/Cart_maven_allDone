@@ -21,14 +21,20 @@ public class CartServlet extends HttpServlet {
         if (action == null) {
             action = "cart";  // default action
         }
+        
+        
+        
 
         // perform action and set URL to appropriate page
         String url = "/index.jsp";
         if (action.equals("shop")) {            
-            url = "/index.jsp";    // the "index" page
+            url = "/index.jsp"; // the "index" page
+            //url = null;
+           // action = "loadProducts";
         } 
         else if (action.equals("cart")) {
             String productCode = request.getParameter("productCode");
+            
             String quantityString = request.getParameter("quantity");
 
             HttpSession session = request.getSession();
@@ -36,6 +42,31 @@ public class CartServlet extends HttpServlet {
             if (cart == null) {
                 cart = new Cart();
             }
+            else{
+                String check = request.getParameter("addNew");
+                if(check!= null && check.equals("yes")){
+                    if(cart.getOneItemsByID(cart.getItems(), productCode) != null){
+                    LineItem temp = cart.getOneItemsByID(cart.getItems(), productCode);
+                    
+                    int currentQuality = temp.getQuantity();
+
+                     quantityString = String.valueOf(currentQuality + 1);
+                    }
+                }
+            }
+//            else{
+//                if(cart.getOneItemsByID(cart.getItems(), productCode) != null){
+//                    LineItem temp = cart.getOneItemsByID(cart.getItems(), productCode);
+//                    int currentQuality = temp.getQuantity();
+//                   // int cartQuality = Integer.parseInt(quantityString);
+////                    if(currentQuality == cartQuality+1 || cartQuality+1 == currentQuality){
+////                    }
+//                    
+//                    
+//                    quantityString = String.valueOf(currentQuality + 1);
+//
+//                }
+//            }
 
             //if the user enters a negative or invalid quantity,
             //the quantity is automatically reset to 1.
