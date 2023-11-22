@@ -31,7 +31,7 @@
         <tr>
         <td><c:out value='${item.description}'/></td>
         <td class="right"><c:out value='${item.price}'/></td>
-        <td><form action="cart" method="post">
+        <td><form action="cart" method="get">
                 <input type="hidden" name="productCode" value="<c:out value='${item.code}'/>">
                 <input type="hidden" name="addNew" value="<c:out value='yes'/>">
                 <input type="submit" value="Add To Cart">
