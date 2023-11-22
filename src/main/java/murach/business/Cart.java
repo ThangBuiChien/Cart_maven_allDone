@@ -14,17 +14,6 @@ public class Cart implements Serializable {
     public ArrayList<LineItem> getItems() {
         return items;
     }
-    
-    public LineItem getOneItemsByID(ArrayList<LineItem> manyItems, String id){
-        for(int i=0; i<manyItems.size(); i++){
-            LineItem currentItem = manyItems.get(i);
-            if( currentItem.getProduct().getCode() == null ? id == null : currentItem.getProduct().getCode().equals(id)){
-                return currentItem;
-            }
-        }
-        
-        return  null;
-    }
 
     public int getCount() {
         return items.size();
