@@ -36,7 +36,7 @@ public class CartServlet extends HttpServlet {
             String productCode = request.getParameter("productCode");
             
             String quantityString = request.getParameter("quantity");
-            String vouchergot = request.getParameter("voucherCode");
+
             HttpSession session = request.getSession();
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
@@ -91,16 +91,7 @@ public class CartServlet extends HttpServlet {
             } else if (quantity == 0) {
                 cart.removeItem(lineItem);
             }
-            String voucherCode = "GIAMGIA20";
-            double percent = 0.2;
-            Voucher voucher = new Voucher(voucherCode, percent);
-            if(voucher.isVoucherValid(vouchergot)){
-                voucher.applyDiscount(lineItem.getTotal());
-            }
-            else
-            {
-                percent = 1;
-            }
+
             session.setAttribute("cart", cart);
             url = "/cart.jsp";
         }

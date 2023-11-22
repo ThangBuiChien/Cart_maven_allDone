@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,12 +66,7 @@
   <input type="hidden" name="action" value="checkout">
   <input type="submit" value="Checkout">
 </form>
-<!-- Voucher input form -->
-<form action="" method="post">
-  <label for="voucherCode">Enter Voucher Code:</label>
-  <input type="text" name="voucherCode" id="voucherCode" placeholder="Enter your voucher code">
-  <input type="submit" value="Apply Voucher">
-</form>
+
 <br> 
  
 <a class = "returnHome" href="https://thangmainpage-f659678d7b24.herokuapp.com/#listEx"><i class="fa-solid fa-house"></i> &#127968 Back To Main Page</a>
