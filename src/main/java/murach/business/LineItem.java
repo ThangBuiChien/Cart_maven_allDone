@@ -49,4 +49,6 @@ public class LineItem implements Serializable {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         return currency.format(this.getTotal());
     }
+    
+    
 }

@@ -46,7 +46,7 @@ public class CartServlet extends HttpServlet {
             int quantity;
             
 
-            int giamGiaDouble;
+            int giamGiaDouble=0;
             try {
                 quantity = Integer.parseInt(quantityString);
 
@@ -102,6 +102,12 @@ public class CartServlet extends HttpServlet {
             url = "/cart.jsp";
         }
         else if (action.equals("checkout")) {
+            HttpSession session = request.getSession();
+
+            
+            Cart currentCart = (Cart)session.getAttribute("cart");
+            float tempTotal = currentCart.totalCart();
+            request.setAttribute("thisIsTotal", tempTotal);
             url = "/checkout.jsp";
         }
         

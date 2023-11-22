@@ -44,4 +44,13 @@ public class Cart implements Serializable {
             }
         }
     }
+    public float totalCart(){
+       float sum=0;
+       for (int i = 0; i < items.size(); i++) {
+            LineItem lineItem = items.get(i);
+                sum += lineItem.getTotal();
+            
+        } 
+       return sum;
+    }
 }
