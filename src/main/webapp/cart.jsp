@@ -47,7 +47,7 @@
       </form>
         
         
-        <form action="cart?productCode=<c:out value='${item.product.code}'/>&quantity=0" method="post">
+        <form action="cart?productCode=<c:out value='${item.product.code}'/>&quantity=0&giamgia=1" method="post">
             <input type="submit" value="Remove Item using URL rewriting">
             
         </form>

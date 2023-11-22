@@ -44,9 +44,12 @@ public class CartServlet extends HttpServlet {
             //if the user enters a negative or invalid quantity,
             //the quantity is automatically reset to 1.
             int quantity;
+            
+
             int giamGiaDouble;
             try {
                 quantity = Integer.parseInt(quantityString);
+
                 if (quantity < 0) {
                     quantity = 1;
                 }
@@ -59,6 +62,7 @@ public class CartServlet extends HttpServlet {
 
             } catch (NumberFormatException nfe) {
                 quantity = 1;giamGiaDouble = 0;
+                
                 
             }
             
@@ -76,19 +80,20 @@ public class CartServlet extends HttpServlet {
             lineItem.setProduct(product);
             lineItem.setQuantity(quantity);
             lineItem.setGiamgia(giamGiaDouble);
-            
-            int temp = lineItem.getGiamgia();
-            
-            System.out.println("reading from lineItem email: " + temp);
+         
 
             
             if (quantity > 0) {
                 
-                cart.addItem(lineItem);
+             cart.addItem(lineItem);
              System.out.println("reading from lineItem email: " + lineItem.getTotalCurrencyFormat());
                
+            
+            System.out.println("THIS NOTE DELETE AS QUALITY =  " + quantity);
 
             } else if (quantity == 0) {
+                System.out.println("THIS DELETE FUNCTION WAS RUNNING " + quantity);
+
                 cart.removeItem(lineItem);
                 
             }
