@@ -41,5 +41,7 @@
     
 </table>
     
+    <p>Zone: ${availabilityZone}; Instant ID: ${instanceId}</p>
+    
 </body>
 </html>
