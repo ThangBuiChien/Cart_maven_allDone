@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 </head>
 <body>
@@ -15,6 +15,8 @@
     <th>Description</th>
     <th>Price</th>
     <th>Amount</th>
+    <th>Discount Percent</th>
+
     <th></th>
   </tr>
 
@@ -26,21 +28,25 @@
         <input type="hidden" name="productCode" 
                value="<c:out value='${item.product.code}'/>">
         <input type=text name="quantity" 
-               value="<c:out value='${item.quantity}'/>" id="quantity">
-        <input type=text name="giamgia" 
-               value="<c:out value='${item.giamgia}'/>" id="giamgia">
+               value="<c:out value='${item.quantity}'/>" id="quantity"> <br>
+        <label for = "giamgia">Enter your discount here</label>
+        <input type=text name="giamgia"  placeholder="Enter your discount here"
+               value="<c:out value='${item.giamgia}'/>" id="giamgia" >
         <input type="submit" value="Update">
       </form>
     </td>
     <td><c:out value='${item.product.description}'/></td>
     <td>${item.product.priceCurrencyFormat}</td>
     <td>${item.totalCurrencyFormat}</td>
+    <td>${item.giamgia}</td>
     <td>
       <form action="cart" method="post">
         <input type="hidden" name="productCode" 
                value="<c:out value='${item.product.code}'/>">
         <input type="hidden" name="quantity" 
                value="0">
+         <input type="hidden" name="giamgia" 
+               value="1">
         <input type="submit" value="Remove Item using hidden fields">
         
         
@@ -66,12 +72,10 @@
 
 <form action="" method="post">
   <input type="hidden" name="action" value="checkout">
-  <input type="submit" value="Checkout">
+  <input type="submit" value="Print Invoice">
 </form>
 
 <br> 
- 
-<a class = "returnHome" href="https://thangmainpage-f659678d7b24.herokuapp.com/#listEx"><i class="fa-solid fa-house"></i> &#127968 Back To Main Page</a>
 
 </body>
 </html>

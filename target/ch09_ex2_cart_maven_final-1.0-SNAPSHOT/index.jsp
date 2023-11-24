@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
+    <title>TDD e-Commerce Website</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 </head>
 <body>
     
-<h1>CD list</h1>
+<h1>This is our top seller on CD music</h1>
 <table>
     
     <form action="loadProducts">
@@ -40,13 +40,6 @@
 
     
 </table>
-     <div class="devnote">
-         <p> <strong>Developer note:</strong> The load button is a <strong>temporary</strong> solution. I don't understand the reason why when I deploy the 
-            website to heroku, it always runs index.html but ignores my web.xml file. That's why I can't call the servlet
-            in welcome-file-list to load data. Sorry for the inconvenience</p>
-        <p>I will try my best to fix this issue soon. I just hope it's not on the list of unanswerable things in my life</p>
-    </div>   
-    <br> 
-    <a class = "returnHome" href="https://thangmainpage-f659678d7b24.herokuapp.com/#listEx"><i class="fa-solid fa-house"></i> &#127968 Back To Main Page</a>
+    
 </body>
 </html>

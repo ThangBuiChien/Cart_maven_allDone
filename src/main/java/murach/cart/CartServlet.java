@@ -107,14 +107,17 @@ public class CartServlet extends HttpServlet {
             
             Cart currentCart = (Cart)session.getAttribute("cart");
             float tempTotal = currentCart.totalCart();
-            if(tempTotal >= 50 && tempTotal <100){
-                tempTotal = (float) (tempTotal*0.9);
-            }
-            if( tempTotal >=100  ){
-                tempTotal = (float) (tempTotal*0.8);
-
-            }
+            
+//            if(tempTotal >= 50 && tempTotal <100){
+//                tempTotal = (float) (tempTotal*0.9);
+//            }
+//            if( tempTotal >=100  ){
+//                tempTotal = (float) (tempTotal*0.8);
+//
+//            }
             request.setAttribute("thisIsTotal", tempTotal);
+            request.setAttribute("item", currentCart);
+
             url = "/checkout.jsp";
         }
         
